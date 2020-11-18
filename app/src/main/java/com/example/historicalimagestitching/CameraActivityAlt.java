@@ -84,41 +84,7 @@ public class CameraActivityAlt extends FragmentActivity {
                 imageAnalysis, preview);
     }
 
-    private long  lastAnalyzedTimestamp = 0L;
 
-    // MAKE A CLASS THAT EXTENDS IMAGEANALYSIS.ANALYZER
-    private void analyze(ImageProxy img){
-
-        long currentTimestamp = System.currentTimeMillis();
-
-        if (currentTimestamp - lastAnalyzedTimestamp >= TimeUnit.SECONDS.toMillis(1)) {
-
-            // Since format in ImageAnalysis is YUV, image.planes[0]
-            // contains the Y (luminance) plane
-            ByteBuffer buffer = img.getPlanes()[0].getBuffer();
-
-            int imgWidth = 10;
-            int imgHeight = 10;
-            byte[] data = buffer.array();
-            Bitmap bitmap = convertImg(data);
-            int[] pixels = null;
-
-            bitmap.getPixels(pixels, 0, 0, 0, 0, imgWidth, imgHeight);
-
-            // NOW CAN DO ANALYSIS !!!!
-
-            img.close();
-
-        }
-
-    }
-
-    private Bitmap convertImg(byte[] bytes){
-
-        Bitmap bitmap = BitmapFactory.decodeByteArray(bytes , 0, bytes.length);
-        return bitmap;
-
-    }
 
 
 
