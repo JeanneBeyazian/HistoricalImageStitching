@@ -35,6 +35,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private LocationManager locManager;
     private FusedLocationProviderClient fusedLocationClient;
+  //  private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
 
 
 

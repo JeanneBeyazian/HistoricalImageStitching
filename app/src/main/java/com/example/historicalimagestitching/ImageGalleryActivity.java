@@ -6,9 +6,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.fragment.app.FragmentActivity;
+
 //https://www.sitepoint.com/handling-displaying-images-android/
 
-public class ImageGalleryActivity extends Activity {
+public class ImageGalleryActivity extends FragmentActivity {
 
     private Integer[] images = {1, 2, 3};
 

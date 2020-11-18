@@ -1,24 +1,22 @@
+// https://akhilbattula.medium.com/android-camerax-java-example-aeee884f9102
+
 package com.example.historicalimagestitching;
 
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
 import android.hardware.Camera;
 import android.media.MediaRecorder;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.widget.FrameLayout;
+
+import androidx.fragment.app.FragmentActivity;
 
 import static com.example.historicalimagestitching.MapsActivity.getCameraInstance;
 
-public class CameraActivity extends Activity {
+public class CameraActivity extends FragmentActivity {
 
     private Camera mCamera;
     private CameraPreview mPreview;
     private MediaRecorder mediaRecorder;
-
-    static final int REQUEST_IMAGE_CAPTURE = 1;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,16 +52,6 @@ public class CameraActivity extends Activity {
         if (mCamera != null){
             mCamera.release();        // release the camera for other applications
             mCamera = null;
-        }
-    }
-
-    // https://developer.android.com/training/camera/photobasics
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        try {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        } catch (ActivityNotFoundException e) {
-            // display error state to the user
         }
     }
 
