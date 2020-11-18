@@ -90,7 +90,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onClick(View view) {
                 if (checkCameraHardware(getApplicationContext())) {
 
-                    startActivity(new Intent(MapsActivity.this, CameraActivity.class));
+                    Intent intent = new Intent(MapsActivity.this, CameraActivityAlt.class);
+                    startActivity(intent);
+
+                    //startActivity(new Intent(MapsActivity.this, CameraActivity.class));
 
                 }
             }
